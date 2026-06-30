@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adam Carr — Video Editor</title>
+<meta name="description" content="Adam Carr is a freelance video editor specialising in commercial, corporate, and social content. Cuts that hold attention and tell a story. View the reel, read the process, get in touch.">
+<meta name="theme-color" content="#0b0b0d">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Adam Carr — Video Editor">
+<meta property="og:description" content="Freelance video editor. Commercial, corporate, and social content cut for impact.">
+<meta property="og:image" content="images/adam.jpg">
+<meta property="og:url" content="https://adamcarr.example/">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Adam Carr — Video Editor">
+<meta name="twitter:description" content="Freelance video editor. Commercial, corporate, and social content cut for impact.">
+<meta name="twitter:image" content="images/adam.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b0b0d'/%3E%3Cpath d='M30 70 L50 28 L70 70 M38 56 H62' stroke='%2322d3ee' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Adam Carr",
+  "jobTitle": "Video Editor",
+  "url": "https://adamcarr.example/",
+  "sameAs": [
+    "https://instagram.com/",
+    "https://linkedin.com/",
+    "https://youtube.com/"
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ CUSTOM CURSOR ============ -->
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- ============ PAGE TIMELINE RULER (signature element) ============ -->
+<div class="page-timeline" aria-hidden="true">
+  <div class="page-timeline__track">
+    <div class="page-timeline__fill"></div>
+    <div class="page-timeline__playhead"></div>
+  </div>
+  <div class="page-timeline__markers">
+    <span data-target="#home">HOME</span>
+    <span data-target="#about">ABOUT</span>
+    <span data-target="#work">WORK</span>
+    <span data-target="#skills">SKILLS</span>
+    <span data-target="#process">PROCESS</span>
+    <span data-target="#reviews">REVIEWS</span>
+    <span data-target="#contact">CONTACT</span>
+  </div>
+  <div class="page-timeline__tc" id="globalTimecode">00:00:00:00</div>
+</div>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="nav" id="siteNav">
+  <div class="nav__inner">
+    <a href="#home" class="nav__logo" aria-label="Adam Carr — home">
+      <span class="nav__logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M7 17 12 6l5 11M9.1 13.4h5.8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span>Adam Carr</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#process">Process</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="btn btn--ghost nav__cta">Get In Touch</a>
+
+    <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#process">Process</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <canvas class="hero__timeline-bg" id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero__vignette" aria-hidden="true"></div>
+
+    <div class="hero__content container">
+      <p class="hero__eyebrow reveal-up">
+        <span class="rec-dot" aria-hidden="true"></span>
+        Now editing — Reel 2026
+      </p>
+      <h1 class="hero__title">
+        <span class="reveal-up" style="--d:1">Adam Carr</span>
+      </h1>
+      <p class="hero__role reveal-up" style="--d:2">Professional Video Editor</p>
+      <p class="hero__tagline reveal-up" style="--d:3">
+        I cut footage into stories worth watching — commercial, corporate, and social
+        edits built on rhythm, pacing, and a relentless respect for the skip button.
+      </p>
+
+      <div class="hero__cta reveal-up" style="--d:4">
+        <a href="#work" class="btn btn--primary magnetic">
+          <span>View Work</span>
+        </a>
+        <a href="#contact" class="btn btn--outline magnetic">
+          <span>Contact</span>
+        </a>
+      </div>
+    </div>
+
+    <button class="hero__scroll" id="scrollIndicator" aria-label="Scroll to about section">
+      <span class="hero__scroll-tc">00:00:00:01</span>
+      <span class="hero__scroll-line"><span></span></span>
+      <span class="hero__scroll-label">Scroll</span>
+    </button>
+  </section>
+
+  <!-- waveform divider -->
+  <div class="waveform-divider" aria-hidden="true"><div class="waveform-divider__bars" id="waveTop"></div></div>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="container about__grid">
+
+      <div class="about__media reveal-up">
+        <div class="about__frame">
+          <img src="images/adam.jpg" alt="Portrait of Adam Carr, freelance video editor" loading="lazy" width="900" height="1125">
+          <span class="about__frame-tc">ADAM_CARR_PORTRAIT.MOV</span>
+          <span class="about__frame-rec"><span class="rec-dot" aria-hidden="true"></span>4K</span>
+        </div>
+      </div>
+
+      <div class="about__copy">
+        <p class="eyebrow reveal-up">— About</p>
+        <h2 class="section-title reveal-up">Cuts with intent.<br>Stories that stick.</h2>
+        <p class="reveal-up">
+          I'm Adam, a freelance video editor working with brands, agencies and creators
+          who care about how a story is paced. My job starts where filming ends: turning
+          raw footage into something with rhythm, tension and a clear point of view.
+        </p>
+        <p class="reveal-up">
+          Over <strong class="stat-inline" data-count="8">0</strong>+ years I've cut commercials,
+          corporate films, podcasts and short-form content for clients who need work that
+          performs — not just looks good in a showreel.
+        </p>
+
+        <div class="about__services reveal-up">
+          <h3 class="about__subhead">What I edit</h3>
+          <ul class="chip-list">
+            <li>Commercial</li>
+            <li>Corporate</li>
+            <li>Social Media</li>
+            <li>YouTube</li>
+            <li>Reels</li>
+            <li>TikTok</li>
+            <li>Podcast</li>
+          </ul>
+        </div>
+
+        <div class="about__software reveal-up">
+          <h3 class="about__subhead">Editing software</h3>
+          <ul class="software-list">
+            <li><img src="images/icons/premiere.svg" alt="" width="36" height="36" loading="lazy"><span>Premiere Pro</span></li>
+            <li><img src="images/icons/aftereffects.svg" alt="" width="36" height="36" loading="lazy"><span>After Effects</span></li>
+            <li><img src="images/icons/davinci.svg" alt="" width="36" height="36" loading="lazy"><span>DaVinci Resolve</span></li>
+            <li><img src="images/icons/photoshop.svg" alt="" width="36" height="36" loading="lazy"><span>Photoshop</span></li>
+          </ul>
+        </div>
+
+        <div class="about__stats reveal-up" id="statsGrid">
+          <div class="stat">
+            <span class="stat__num" data-count="180">0</span>
+            <span class="stat__label">Projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num" data-count="46">0</span>
+            <span class="stat__label">Clients</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num" data-count="8">0</span>
+            <span class="stat__label">Years Experience</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num" data-count="42" data-suffix="M+">0</span>
+            <span class="stat__label">Views Generated</span>
+          </div>
+        </div>
+
+        <div class="about__clients reveal-up" aria-label="Selected clients">
+          <p class="about__clients-label">Selected clients</p>
+          <div class="about__clients-row">
+            <img src="images/clients/client1.svg" alt="Northwind Studios" loading="lazy" width="200" height="60">
+            <img src="images/clients/client2.svg" alt="Vertex Media" loading="lazy" width="200" height="60">
+            <img src="images/clients/client3.svg" alt="Lumen Brands" loading="lazy" width="200" height="60">
+            <img src="images/clients/client4.svg" alt="Orbit Music" loading="lazy" width="200" height="60">
+            <img src="images/clients/client5.svg" alt="Halcyon Films" loading="lazy" width="200" height="60">
+            <img src="images/clients/client6.svg" alt="Pixelforge" loading="lazy" width="200" height="60">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="waveform-divider waveform-divider--alt" aria-hidden="true"><div class="waveform-divider__bars" id="waveMid"></div></div>
+
+  <!-- ============ FEATURED WORK ============ -->
+  <section class="work" id="work">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal-up">— Featured Work</p>
+        <h2 class="section-title reveal-up">Selected projects</h2>
+        <p class="section-sub reveal-up">A handful of recent edits. Every clip below is local footage — hover to scrub.</p>
+      </div>
+    </div>
+
+    <div class="project-list" id="projectList">
+
+      <article class="project project--reverse" data-category="Commercial">
+        <div class="project__media">
+          <div class="video-wrap">
+            <video class="project-video" muted loop playsinline preload="none"
+                   poster="images/project1-poster.jpg"
+                   data-src="videos/project1.mp4" aria-label="Coastline — commercial showreel clip, muted preview">
+            </video>
+            <div class="video-wrap__overlay"></div>
+            <button class="video-wrap__play" aria-label="Play preview sound off / view project">
+              <img src="images/icons/play.svg" alt="" width="22" height="22">
+            </button>
+            <div class="video-wrap__scrubber" data-video-target>
+              <div class="video-wrap__progress"></div>
+              <div class="video-wrap__handle"></div>
+            </div>
+          </div>
+        </div>
+        <div class="project__info">
+          <span class="project__index">01</span>
+          <h3 class="project__title">Coastline</h3>
+          <p class="project__desc">A 30-second brand spot cut for pace and rhythm, built around match-cuts on motion and a punchy sound design pass.</p>
+          <dl class="project__meta">
+            <div><dt>Client</dt><dd>Northwind Studios</dd></div>
+            <div><dt>Category</dt><dd>Commercial</dd></div>
+            <div><dt>Duration</dt><dd>00:00:32</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="project" data-category="Music Video">
+        <div class="project__media">
+          <div class="video-wrap">
+            <video class="project-video" muted loop playsinline preload="none"
+                   poster="images/project2-poster.jpg"
+                   data-src="videos/project2.mp4" aria-label="Afterglow — music video preview, muted">
+            </video>
+            <div class="video-wrap__overlay"></div>
+            <button class="video-wrap__play" aria-label="Play preview sound off / view project">
+              <img src="images/icons/play.svg" alt="" width="22" height="22">
+            </button>
+            <div class="video-wrap__scrubber" data-video-target>
+              <div class="video-wrap__progress"></div>
+              <div class="video-wrap__handle"></div>
+            </div>
+          </div>
+        </div>
+        <div class="project__info">
+          <span class="project__index">02</span>
+          <h3 class="project__title">Afterglow</h3>
+          <p class="project__desc">Performance footage from three takes interwoven into a single continuous arc, graded for warmth and contrast.</p>
+          <dl class="project__meta">
+            <div><dt>Client</dt><dd>Orbit Music</dd></div>
+            <div><dt>Category</dt><dd>Music Video</dd></div>
+            <div><dt>Duration</dt><dd>00:03:14</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="project project--reverse" data-category="Documentary">
+        <div class="project__media">
+          <div class="video-wrap">
+            <video class="project-video" muted loop playsinline preload="none"
+                   poster="images/project3-poster.jpg"
+                   data-src="videos/project3.mp4" aria-label="The Long Haul — documentary preview, muted">
+            </video>
+            <div class="video-wrap__overlay"></div>
+            <button class="video-wrap__play" aria-label="Play preview sound off / view project">
+              <img src="images/icons/play.svg" alt="" width="22" height="22">
+            </button>
+            <div class="video-wrap__scrubber" data-video-target>
+              <div class="video-wrap__progress"></div>
+              <div class="video-wrap__handle"></div>
+            </div>
+          </div>
+        </div>
+        <div class="project__info">
+          <span class="project__index">03</span>
+          <h3 class="project__title">The Long Haul</h3>
+          <p class="project__desc">An eight-minute short documentary distilled from forty hours of interview and verite footage, structured around three acts.</p>
+          <dl class="project__meta">
+            <div><dt>Client</dt><dd>Halcyon Films</dd></div>
+            <div><dt>Category</dt><dd>Documentary</dd></div>
+            <div><dt>Duration</dt><dd>00:08:47</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="project" data-category="Brand Film">
+        <div class="project__media">
+          <div class="video-wrap">
+            <video class="project-video" muted loop playsinline preload="none"
+                   poster="images/project4-poster.jpg"
+                   data-src="videos/project4.mp4" aria-label="Pulse — brand film preview, muted">
+            </video>
+            <div class="video-wrap__overlay"></div>
+            <button class="video-wrap__play" aria-label="Play preview sound off / view project">
+              <img src="images/icons/play.svg" alt="" width="22" height="22">
+            </button>
+            <div class="video-wrap__scrubber" data-video-target>
+              <div class="video-wrap__progress"></div>
+              <div class="video-wrap__handle"></div>
+            </div>
+          </div>
+        </div>
+        <div class="project__info">
+          <span class="project__index">04</span>
+          <h3 class="project__title">Pulse</h3>
+          <p class="project__desc">A product launch film cut to a single uninterrupted beat, leaning on whip-pans and kinetic typography for momentum.</p>
+          <dl class="project__meta">
+            <div><dt>Client</dt><dd>Vertex Media</dd></div>
+            <div><dt>Category</dt><dd>Brand Film</dd></div>
+            <div><dt>Duration</dt><dd>00:01:05</dd></div>
+          </dl>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal-up">— Skills</p>
+        <h2 class="section-title reveal-up">Tools of the cut</h2>
+      </div>
+
+      <ul class="tag-cloud" id="tagCloud">
+        <li class="tag reveal-up">Commercial Editing</li>
+        <li class="tag reveal-up">Colour Grading</li>
+        <li class="tag reveal-up">Motion Graphics</li>
+        <li class="tag reveal-up">Sound Design</li>
+        <li class="tag reveal-up">YouTube Editing</li>
+        <li class="tag reveal-up">Corporate Video</li>
+        <li class="tag reveal-up">Social Content</li>
+        <li class="tag reveal-up">Reels</li>
+        <li class="tag reveal-up">TikTok</li>
+        <li class="tag reveal-up">Podcast Editing</li>
+        <li class="tag reveal-up">Animation</li>
+        <li class="tag reveal-up">Brand Storytelling</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal-up">— Process</p>
+        <h2 class="section-title reveal-up">How a project gets cut</h2>
+        <p class="section-sub reveal-up">Every job runs down the same timeline — the playhead below tracks it as you scroll.</p>
+      </div>
+    </div>
+
+    <div class="process-timeline" id="processTimeline">
+      <div class="process-timeline__line" aria-hidden="true">
+        <div class="process-timeline__line-fill" id="processFill"></div>
+        <div class="process-timeline__playhead" id="processPlayhead"></div>
+      </div>
+
+      <ol class="process-track">
+        <li class="process-clip reveal-up" data-tc="00:00:00:00">
+          <span class="process-clip__tc">00:00:00:00</span>
+          <h3>Import Footage</h3>
+          <p>Raw media comes in, gets backed up and organised before a single cut is made.</p>
+        </li>
+        <li class="process-clip reveal-up" data-tc="00:04:12:00">
+          <span class="process-clip__tc">00:04:12:00</span>
+          <h3>Organise</h3>
+          <p>Bins, labels and proxies — footage is sorted by scene, take and usability.</p>
+        </li>
+        <li class="process-clip reveal-up" data-tc="00:11:30:00">
+          <span class="process-clip__tc">00:11:30:00</span>
+          <h3>Rough Cut</h3>
+          <p>The first pass — structure and story over polish, getting the shape right.</p>
+        </li>
+        <li class="process-clip reveal-up" data-tc="00:22:05:00">
+          <span class="process-clip__tc">00:22:05:00</span>
+          <h3>Fine Cut</h3>
+          <p>Trimming for pace, tightening transitions, locking the edit's rhythm.</p>
+        </li>
+        <li class="process-clip reveal-up" data-tc="00:31:48:00">
+          <span class="process-clip__tc">00:31:48:00</span>
+          <h3>Motion Graphics</h3>
+          <p>Titles, lower thirds and kinetic type built to match the cut's energy.</p>
+        </li>
+        <li class="process-clip reveal-up" data-tc="00:40:20:00">
+          <span class="process-clip__tc">00:40:20:00</span>
+          <h3>Colour Grade</h3>
+          <p>A consistent look applied across every shot for mood and continuity.</p>
+        </li>
+        <li class="process-clip reveal-up" data-tc="00:48:55:00">
+          <span class="process-clip__tc">00:48:55:00</span>
+          <h3>Audio Mix</h3>
+          <p>Dialogue cleaned, music balanced, sound design layered for impact.</p>
+        </li>
+        <li class="process-clip reveal-up" data-tc="00:55:00:00">
+          <span class="process-clip__tc">00:55:00:00</span>
+          <h3>Final Delivery</h3>
+          <p>Exported, QC'd and delivered in every format the platform requires.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="waveform-divider" aria-hidden="true"><div class="waveform-divider__bars" id="waveBottom"></div></div>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow reveal-up">— Reviews</p>
+        <h2 class="section-title reveal-up">What clients say</h2>
+      </div>
+
+      <div class="reviews-grid">
+        <blockquote class="review-card reveal-up">
+          <div class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>“Adam turned forty hours of raw footage into something we were genuinely proud to put our name on. Fast, sharp, and easy to work with.”</p>
+          <footer>
+            <span class="review-card__name">Maya Holt</span>
+            <span class="review-card__company">Northwind Studios</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="review-card reveal-up">
+          <div class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>“Our retention numbers jumped the moment Adam started cutting our YouTube series. He understands pacing better than anyone we've used.”</p>
+          <footer>
+            <span class="review-card__name">Theo Nakamura</span>
+            <span class="review-card__company">Pixelforge</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="review-card reveal-up">
+          <div class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>“Communicative, fast turnarounds, and the colour grade alone elevated the whole campaign. We've booked him for every launch since.”</p>
+          <footer>
+            <span class="review-card__name">Priya Shah</span>
+            <span class="review-card__company">Vertex Media</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="review-card reveal-up">
+          <div class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>“Adam took a vague creative brief and gave back something better than what we pitched ourselves. Rare to find that judgement.”</p>
+          <footer>
+            <span class="review-card__name">Connor Blake</span>
+            <span class="review-card__company">Halcyon Films</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="review-card reveal-up">
+          <div class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>“Reliable on deadline, meticulous on detail. The sound design on our brand film made it feel twice the budget.”</p>
+          <footer>
+            <span class="review-card__name">Ines Dahl</span>
+            <span class="review-card__company">Lumen Brands</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="review-card reveal-up">
+          <div class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>“We've worked with a lot of editors. Adam is the only one who pushes back on the brief when it'll make the cut better.”</p>
+          <footer>
+            <span class="review-card__name">Sam Okafor</span>
+            <span class="review-card__company">Orbit Music</span>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <canvas class="contact__bg" id="contactCanvas" aria-hidden="true"></canvas>
+    <div class="container contact__inner">
+      <p class="eyebrow reveal-up">— Contact</p>
+      <h2 class="contact__headline reveal-up">Let's create something incredible</h2>
+      <p class="contact__sub reveal-up">Have a project, a deadline, or just an idea? Tell me about it.</p>
+
+      <a class="contact__email reveal-up" href="mailto:hello@adamcarr.example">hello@adamcarr.example</a>
+
+      <a href="mailto:hello@adamcarr.example" class="btn btn--primary btn--lg magnetic reveal-up">
+        <span>Get In Touch</span>
+      </a>
+
+      <ul class="social-row reveal-up" aria-label="Social links">
+        <li><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Adam Carr on Instagram">
+          <img src="images/icons/instagram.svg" alt="" width="22" height="22"></a></li>
+        <li><a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="Adam Carr on LinkedIn">
+          <img src="images/icons/linkedin.svg" alt="" width="22" height="22"></a></li>
+        <li><a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="Adam Carr on YouTube">
+          <img src="images/icons/youtube.svg" alt="" width="22" height="22"></a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>&copy; <span id="year"></span> Adam Carr. All rights reserved.</p>
+    <button id="backToTop" class="footer__top" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to top
+    </button>
+  </div>
+</footer>
+
+<div class="noise-overlay" aria-hidden="true"></div>
+
+<script src="js/scroll.js" defer></script>
+<script src="js/timeline.js" defer></script>
+<script src="js/videos.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

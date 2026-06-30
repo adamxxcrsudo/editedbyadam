@@ -1,0 +1,72 @@
+/* ============================================================
+   RESPONSIVE — breakpoints layered on top of style.css
+   Desktop-first overrides stepping down through tablet/mobile
+   ============================================================ */
+
+/* ---------- ≤1180px : tighten container, stack stats ---------- */
+@media (max-width: 1180px){
+  .about__grid{ grid-template-columns:1fr; gap:56px; }
+  .about__frame{ max-width:420px; }
+  .reviews-grid{ grid-template-columns:repeat(2,1fr); }
+}
+
+/* ---------- ≤1024px : collapse nav to burger, stack projects ---------- */
+@media (max-width: 1024px){
+  .nav__links{ display:none; }
+  .nav__cta{ display:none; }
+  .nav__burger{ display:flex; }
+  .mobile-menu.is-open{ display:flex; }
+
+  .project,
+  .project--reverse{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+  .project--reverse .project__media,
+  .project--reverse .project__info{ order:initial; }
+
+  .process-track{ grid-template-columns:repeat(2,1fr); }
+  .process-timeline__line{ display:none; }
+
+  section{ padding:96px 0; }
+}
+
+/* ---------- ≤860px : reviews single column ---------- */
+@media (max-width: 860px){
+  .reviews-grid{ grid-template-columns:1fr; }
+  .about__stats{ grid-template-columns:repeat(2,1fr); }
+}
+
+/* ---------- ≤640px : mobile ---------- */
+@media (max-width: 640px){
+  .container{ padding:0 20px; }
+  .nav__inner{ padding:0 20px; }
+
+  .hero__content{ padding-top:calc(var(--nav-h) + 10px); }
+  .hero__title{ font-size:clamp(2.6rem, 14vw, 4rem); }
+  .hero__cta{ flex-direction:column; align-items:flex-start; }
+  .hero__cta .btn{ width:100%; justify-content:center; }
+  .hero__scroll{ left:20px; bottom:20px; }
+
+  .project-list{ gap:80px; }
+  .project__meta{ gap:20px; }
+
+  .process-track{ grid-template-columns:1fr; }
+
+  .software-list{ gap:18px; }
+
+  .about__clients-row{ gap:20px; }
+
+  .contact__headline{ font-size:clamp(2rem, 9vw, 3rem); }
+
+  .footer__inner{ flex-direction:column; gap:14px; text-align:center; }
+
+  .page-timeline__tc{ display:none; }
+}
+
+/* ---------- ≤400px : extra-small phones ---------- */
+@media (max-width: 400px){
+  .hero__role{ font-size:1.1rem; }
+  .btn{ padding:14px 24px; font-size:.88rem; }
+  .section-title{ font-size:1.7rem; }
+}
