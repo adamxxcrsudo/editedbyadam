@@ -109,10 +109,14 @@
   updateProcessPlayhead();
 
   /* ============================================================
-     3. WAVEFORM DIVIDER BARS (generated, animated)
+     3. WAVEFORM DIVIDER BARS (generated, animated, full-bleed)
      ============================================================ */
-  function buildWaveform(container, barCount) {
+  const BAR_UNIT = 7; // px per bar including its gap — controls density
+
+  function buildWaveform(container) {
     if (!container) return;
+    container.innerHTML = '';
+    const barCount = Math.max(40, Math.ceil(container.clientWidth / BAR_UNIT));
     const frag = document.createDocumentFragment();
     for (let i = 0; i < barCount; i++) {
       const bar = document.createElement('span');
@@ -129,9 +133,21 @@
     container.appendChild(frag);
   }
 
-  buildWaveform(document.getElementById('waveTop'), 90);
-  buildWaveform(document.getElementById('waveMid'), 90);
-  buildWaveform(document.getElementById('waveBottom'), 90);
+  const waveContainers = [
+    document.getElementById('waveTop'),
+    document.getElementById('waveMid'),
+    document.getElementById('waveBottom'),
+  ].filter(Boolean);
+
+  waveContainers.forEach((c) => buildWaveform(c));
+
+  let waveResizeTimer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(waveResizeTimer);
+    waveResizeTimer = setTimeout(() => {
+      waveContainers.forEach((c) => buildWaveform(c));
+    }, 200);
+  });
 
   /* ============================================================
      4. ANIMATED STAT COUNTERS
