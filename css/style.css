@@ -3,18 +3,17 @@
    Table of contents:
    1. Variables / reset
    2. Utility & layout
-   3. Custom cursor
-   4. Page timeline ruler (signature element)
-   5. Navigation
-   6. Hero
-   7. Waveform dividers
-   8. About
-   9. Featured work
-   10. Skills
-   11. Process
-   12. Reviews
-   13. Contact
-   14. Footer
+   3. Page timeline ruler (signature element)
+   4. Navigation
+   5. Hero
+   6. Waveform dividers
+   7. About
+   8. Featured work
+   9. Skills
+   10. Process
+   11. Reviews
+   12. Contact
+   13. Footer
    ============================================================ */
 
 /* ---------- 1. VARIABLES / RESET ---------- */
@@ -198,34 +197,7 @@ section{ position:relative; padding:130px 0; }
   color:var(--text-dim);
 }
 
-/* ---------- 3. CUSTOM CURSOR ---------- */
-.cursor-dot,.cursor-ring{
-  position:fixed;
-  top:0; left:0;
-  pointer-events:none;
-  z-index:10000;
-  border-radius:50%;
-  transform:translate(-50%,-50%);
-  mix-blend-mode:difference;
-}
-.cursor-dot{
-  width:6px; height:6px;
-  background:#fff;
-}
-.cursor-ring{
-  width:32px; height:32px;
-  border:1px solid rgba(255,255,255,.6);
-  transition:width .25s var(--ease), height .25s var(--ease), border-color .25s var(--ease);
-}
-.cursor-ring.is-active{
-  width:54px; height:54px;
-  border-color:var(--cyan);
-}
-@media (hover:none), (pointer:coarse){
-  .cursor-dot,.cursor-ring{ display:none; }
-}
-
-/* ---------- 4. PAGE TIMELINE RULER ---------- */
+/* ---------- 3. PAGE TIMELINE RULER ---------- */
 .page-timeline{
   position:fixed;
   top:0; left:0; right:0;
@@ -270,7 +242,7 @@ section{ position:relative; padding:130px 0; }
   z-index:1001;
 }
 
-/* ---------- 5. NAVIGATION ---------- */
+/* ---------- 4. NAVIGATION ---------- */
 .nav{
   position:fixed;
   top:0; left:0; right:0;
@@ -356,7 +328,7 @@ section{ position:relative; padding:130px 0; }
   color:var(--text);
 }
 
-/* ---------- 6. HERO ---------- */
+/* ---------- 5. HERO ---------- */
 .hero{
   position:relative;
   min-height:100svh;
@@ -454,7 +426,7 @@ section{ position:relative; padding:130px 0; }
   writing-mode:vertical-rl;
 }
 
-/* ---------- 7. WAVEFORM DIVIDERS ---------- */
+/* ---------- 6. WAVEFORM DIVIDERS ---------- */
 .waveform-divider{
   position:relative;
   height:64px;
@@ -469,7 +441,7 @@ section{ position:relative; padding:130px 0; }
   align-items:center;
   gap:3px;
   width:100%;
-  padding:0 32px;
+  padding:0;
   height:32px;
 }
 .waveform-divider__bars span{
@@ -483,7 +455,7 @@ section{ position:relative; padding:130px 0; }
   transform-origin:center;
 }
 
-/* ---------- 8. ABOUT ---------- */
+/* ---------- 7. ABOUT ---------- */
 .about{ background:var(--bg-charcoal); }
 .about__grid{
   display:grid;
@@ -587,7 +559,7 @@ section{ position:relative; padding:130px 0; }
 }
 .about__clients-row img:hover{ opacity:1; filter:grayscale(0); }
 
-/* ---------- 9. FEATURED WORK ---------- */
+/* ---------- 8. FEATURED WORK ---------- */
 .work{ background:var(--bg-black); }
 .project-list{ display:flex; flex-direction:column; gap:130px; }
 .project{
@@ -705,7 +677,7 @@ section{ position:relative; padding:130px 0; }
 }
 .project__meta dd{ margin:0; font-size:.95rem; color:var(--text); }
 
-/* ---------- 10. SKILLS ---------- */
+/* ---------- 9. SKILLS ---------- */
 .skills{ background:var(--bg-charcoal); }
 .tag-cloud{
   display:flex;
@@ -742,7 +714,7 @@ section{ position:relative; padding:130px 0; }
 }
 .tag:hover::before{ opacity:1; }
 
-/* ---------- 11. PROCESS ---------- */
+/* ---------- 10. PROCESS ---------- */
 .process{ background:var(--bg-black); }
 .process-timeline{ position:relative; max-width:var(--container); margin:0 auto; padding:0 32px; }
 .process-timeline__line{
@@ -798,7 +770,7 @@ section{ position:relative; padding:130px 0; }
 .process-clip h3{ font-size:1.05rem; margin-bottom:8px; }
 .process-clip p{ font-size:.9rem; color:var(--text-dim); }
 
-/* ---------- 12. REVIEWS ---------- */
+/* ---------- 11. REVIEWS ---------- */
 .reviews{ background:var(--bg-charcoal); }
 .reviews-grid{
   display:grid;
@@ -830,7 +802,7 @@ section{ position:relative; padding:130px 0; }
 .review-card__name{ font-family:var(--font-display); font-weight:600; font-size:.95rem; }
 .review-card__company{ font-size:.82rem; color:var(--text-faint); }
 
-/* ---------- 13. CONTACT ---------- */
+/* ---------- 12. CONTACT ---------- */
 .contact{
   position:relative;
   text-align:center;
@@ -882,7 +854,7 @@ section{ position:relative; padding:130px 0; }
   transform:translateY(-3px);
 }
 
-/* ---------- 14. FOOTER ---------- */
+/* ---------- 13. FOOTER ---------- */
 .footer{
   background:var(--bg-charcoal);
   border-top:1px solid var(--border);
