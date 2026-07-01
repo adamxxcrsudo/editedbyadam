@@ -3,17 +3,18 @@
    Table of contents:
    1. Variables / reset
    2. Utility & layout
-   3. Page timeline ruler (signature element)
-   4. Navigation
-   5. Hero
-   6. Waveform dividers
-   7. About
-   8. Featured work
-   9. Skills
-   10. Process
-   11. Reviews
-   12. Contact
-   13. Footer
+   3. Custom cursor
+   4. Page timeline ruler (signature element)
+   5. Navigation
+   6. Hero
+   7. Waveform dividers
+   8. About
+   9. Featured work
+   10. Skills
+   11. Process
+   12. Reviews
+   13. Contact
+   14. Footer
    ============================================================ */
 
 /* ---------- 1. VARIABLES / RESET ---------- */
@@ -22,8 +23,8 @@
   --bg-black:#0b0b0d;
   --bg-charcoal:#16181d;
   --bg-charcoal-2:#1b1e25;
-  --bg-card:rgba(255,255,255,.04);
-  --bg-card-hover:rgba(255,255,255,.07);
+  --bg-card: rgba(255,255,255,0.04);
+  --bg-card-hover: rgba(255,255,255,0.07);
 
   /* text */
   --grey-light:#ececec;
@@ -37,43 +38,30 @@
   --cyan:#22d3ee;
   --teal:#2dd4bf;
 
-  --grad-main:linear-gradient(120deg,#4f7cff 0%,#8b5cf6 52%,#22d3ee 100%);
-  --grad-soft:linear-gradient(120deg,
-      rgba(79,124,255,.25),
-      rgba(139,92,246,.25),
-      rgba(34,211,238,.25));
+  --grad-main: linear-gradient(120deg, var(--blue) 0%, var(--purple) 52%, var(--cyan) 100%);
+  --grad-soft: linear-gradient(120deg, rgba(79,124,255,.25), rgba(139,92,246,.25), rgba(34,211,238,.25));
 
-  --border:rgba(255,255,255,.08);
-  --border-strong:rgba(255,255,255,.16);
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.16);
 
-  /* Typography */
-  --font-display:'League Spartan',sans-serif;
-  --font-body:'Inter',sans-serif;
-  --font-mono:'JetBrains Mono',monospace;
+  --font-display:'Space Grotesk', 'Inter', sans-serif;
+  --font-body:'Inter', sans-serif;
+  --font-mono:'JetBrains Mono', monospace;
 
-  --container:1240px;
-  --nav-h:84px;
+  --container: 1240px;
+  --nav-h: 84px;
+  --radius-s: 8px;
+  --radius-m: 16px;
+  --radius-l: 28px;
 
-  --radius-s:8px;
-  --radius-m:16px;
-  --radius-l:28px;
-
-  --ease:cubic-bezier(.22,1,.36,1);
-  --ease-soft:cubic-bezier(.16,.84,.44,1);
+  --ease: cubic-bezier(.22,1,.36,1);
+  --ease-soft: cubic-bezier(.16,.84,.44,1);
 }
 
-*,*::before,*::after{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-@media (prefers-reduced-motion:reduce){
-  html{
-    scroll-behavior:auto;
-  }
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
 }
 
 body{
@@ -82,60 +70,19 @@ body{
   color:var(--text);
   font-family:var(--font-body);
   font-size:16px;
-  line-height:1.65;
-  font-weight:400;
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
   overflow-x:hidden;
 }
 
-img{
-  display:block;
-  max-width:100%;
-}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul,ol{ margin:0; padding:0; list-style:none; }
+button{ font-family:inherit; cursor:pointer; background:none; border:none; color:inherit; }
+h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; margin:0; letter-spacing:-0.02em; }
+p{ margin:0; }
 
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-ul,
-ol{
-  margin:0;
-  padding:0;
-  list-style:none;
-}
-
-button{
-  font:inherit;
-  color:inherit;
-  background:none;
-  border:none;
-  cursor:pointer;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6{
-  margin:0;
-  font-family:var(--font-display);
-  font-weight:700;
-  line-height:.92;
-  letter-spacing:-0.045em;
-  text-transform:uppercase;
-}
-
-p{
-  margin:0;
-}
-
-::selection{
-  background:var(--purple);
-  color:#fff;
-}
+::selection{ background:var(--purple); color:#fff; }
 
 :focus-visible{
   outline:2px solid var(--cyan);
@@ -144,19 +91,13 @@ p{
 }
 
 .skip-link{
-  position:absolute;
-  left:-9999px;
-  top:0;
-  z-index:9999;
-  padding:12px 20px;
-  background:var(--cyan);
-  color:var(--bg-black);
-  font-weight:700;
+  position:absolute; left:-9999px; top:0;
+  background:var(--cyan); color:var(--bg-black);
+  padding:12px 20px; z-index:9999; font-weight:600;
   border-radius:0 0 8px 0;
 }
+.skip-link:focus{ left:0; }
 
-.skip-link:focus{
-  left:0;}
 /* ---------- 2. UTILITY & LAYOUT ---------- */
 .container{
   max-width:var(--container);
@@ -257,7 +198,34 @@ section{ position:relative; padding:130px 0; }
   color:var(--text-dim);
 }
 
-/* ---------- 3. PAGE TIMELINE RULER ---------- */
+/* ---------- 3. CUSTOM CURSOR ---------- */
+.cursor-dot,.cursor-ring{
+  position:fixed;
+  top:0; left:0;
+  pointer-events:none;
+  z-index:10000;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  mix-blend-mode:difference;
+}
+.cursor-dot{
+  width:6px; height:6px;
+  background:#fff;
+}
+.cursor-ring{
+  width:32px; height:32px;
+  border:1px solid rgba(255,255,255,.6);
+  transition:width .25s var(--ease), height .25s var(--ease), border-color .25s var(--ease);
+}
+.cursor-ring.is-active{
+  width:54px; height:54px;
+  border-color:var(--cyan);
+}
+@media (hover:none), (pointer:coarse){
+  .cursor-dot,.cursor-ring{ display:none; }
+}
+
+/* ---------- 4. PAGE TIMELINE RULER ---------- */
 .page-timeline{
   position:fixed;
   top:0; left:0; right:0;
@@ -302,7 +270,7 @@ section{ position:relative; padding:130px 0; }
   z-index:1001;
 }
 
-/* ---------- 4. NAVIGATION ---------- */
+/* ---------- 5. NAVIGATION ---------- */
 .nav{
   position:fixed;
   top:0; left:0; right:0;
@@ -388,7 +356,7 @@ section{ position:relative; padding:130px 0; }
   color:var(--text);
 }
 
-/* ---------- 5. HERO ---------- */
+/* ---------- 6. HERO ---------- */
 .hero{
   position:relative;
   min-height:100svh;
@@ -486,7 +454,7 @@ section{ position:relative; padding:130px 0; }
   writing-mode:vertical-rl;
 }
 
-/* ---------- 6. WAVEFORM DIVIDERS ---------- */
+/* ---------- 7. WAVEFORM DIVIDERS ---------- */
 .waveform-divider{
   position:relative;
   height:64px;
@@ -501,7 +469,7 @@ section{ position:relative; padding:130px 0; }
   align-items:center;
   gap:3px;
   width:100%;
-  padding:0;
+  padding:0 32px;
   height:32px;
 }
 .waveform-divider__bars span{
@@ -515,7 +483,7 @@ section{ position:relative; padding:130px 0; }
   transform-origin:center;
 }
 
-/* ---------- 7. ABOUT ---------- */
+/* ---------- 8. ABOUT ---------- */
 .about{ background:var(--bg-charcoal); }
 .about__grid{
   display:grid;
@@ -619,7 +587,7 @@ section{ position:relative; padding:130px 0; }
 }
 .about__clients-row img:hover{ opacity:1; filter:grayscale(0); }
 
-/* ---------- 8. FEATURED WORK ---------- */
+/* ---------- 9. FEATURED WORK ---------- */
 .work{ background:var(--bg-black); }
 .project-list{ display:flex; flex-direction:column; gap:130px; }
 .project{
@@ -737,7 +705,7 @@ section{ position:relative; padding:130px 0; }
 }
 .project__meta dd{ margin:0; font-size:.95rem; color:var(--text); }
 
-/* ---------- 9. SKILLS ---------- */
+/* ---------- 10. SKILLS ---------- */
 .skills{ background:var(--bg-charcoal); }
 .tag-cloud{
   display:flex;
@@ -774,7 +742,7 @@ section{ position:relative; padding:130px 0; }
 }
 .tag:hover::before{ opacity:1; }
 
-/* ---------- 10. PROCESS ---------- */
+/* ---------- 11. PROCESS ---------- */
 .process{ background:var(--bg-black); }
 .process-timeline{ position:relative; max-width:var(--container); margin:0 auto; padding:0 32px; }
 .process-timeline__line{
@@ -830,7 +798,7 @@ section{ position:relative; padding:130px 0; }
 .process-clip h3{ font-size:1.05rem; margin-bottom:8px; }
 .process-clip p{ font-size:.9rem; color:var(--text-dim); }
 
-/* ---------- 11. REVIEWS ---------- */
+/* ---------- 12. REVIEWS ---------- */
 .reviews{ background:var(--bg-charcoal); }
 .reviews-grid{
   display:grid;
@@ -862,7 +830,7 @@ section{ position:relative; padding:130px 0; }
 .review-card__name{ font-family:var(--font-display); font-weight:600; font-size:.95rem; }
 .review-card__company{ font-size:.82rem; color:var(--text-faint); }
 
-/* ---------- 12. CONTACT ---------- */
+/* ---------- 13. CONTACT ---------- */
 .contact{
   position:relative;
   text-align:center;
@@ -914,7 +882,7 @@ section{ position:relative; padding:130px 0; }
   transform:translateY(-3px);
 }
 
-/* ---------- 13. FOOTER ---------- */
+/* ---------- 14. FOOTER ---------- */
 .footer{
   background:var(--bg-charcoal);
   border-top:1px solid var(--border);
